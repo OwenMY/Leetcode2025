@@ -3,7 +3,6 @@ function wordBreak(target: string, words: string[]): string[] {
 
     const result: string[] = [];
     const path: string[] = [];
-    // const memo: Map<string, string[]> = new Map();
 
     const dfs = (start_index: number): void => {
         if (start_index === target.length) {
@@ -22,7 +21,6 @@ function wordBreak(target: string, words: string[]): string[] {
             path.pop();
         }
 
-        // memo.add(startSubString);
         return;
     }
 
