@@ -14,7 +14,6 @@ function findPeakElement(nums: number[]): number {
             result = mid;
             end = mid - 1;
         } else {
-            result = mid + 1;
             start = mid + 1;
         }
     }
