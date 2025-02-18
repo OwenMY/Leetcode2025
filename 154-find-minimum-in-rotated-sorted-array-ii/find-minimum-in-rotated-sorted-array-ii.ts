@@ -8,8 +8,8 @@ function findMin(nums: number[], s = 0, e = Infinity): number {
         const num = nums[mid];
 
         if (num === lowestNum) {
-            const leftMin = findMin(nums, start, mid - 1);
-            const rightMin = findMin(nums, mid + 1, end);
+            const leftMin = nums[mid - 1] !== undefined ? findMin(nums, start, mid - 1) : Infinity;
+            const rightMin = nums[mid + 1] !== undefined ? findMin(nums, mid + 1, end) : Infinity;
 
             lowestNum = Math.min(lowestNum, leftMin, rightMin);
             break;
@@ -23,6 +23,5 @@ function findMin(nums: number[], s = 0, e = Infinity): number {
         }
     }
 
-    if (lowestNum === undefined) return 10000000; // Since infinity does not count as number type
     return lowestNum;
 };
