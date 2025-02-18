@@ -16,7 +16,7 @@ const findPivotIndex = (nums: number[]): number => {
             start = mid + 1;
         }
     }
-    console.log(pivot)
+
     return pivot;
 };
 
