@@ -10,7 +10,6 @@
  * }
  */
 
-
 function removeNthFromEnd(head: ListNode | null, n: number): ListNode | null {
     if (!head) return head;
     
@@ -27,8 +26,8 @@ function removeNthFromEnd(head: ListNode | null, n: number): ListNode | null {
         fastNode = fastNode.next
         listLength++;
 
-        // If we have traversed enough to have n distance + 1,
-        // move delete node to be n distance away from n 
+        // If we have traversed enough to have n distance,
+        // move delete node to the nth position away from end
         if (listLength - deleteNodePostion === n) {
             deleteNode = deleteNode.next
             deleteNodePostion++;
