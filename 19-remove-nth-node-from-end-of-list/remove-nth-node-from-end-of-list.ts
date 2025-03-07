@@ -49,3 +49,5 @@ function removeNthFromEnd(head: ListNode | null, n: number): ListNode | null {
 
     return result;
 };
+
+// Time complexity 0n
