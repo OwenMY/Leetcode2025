@@ -39,6 +39,7 @@ function removeNthFromEnd(head: ListNode | null, n: number): ListNode | null {
 
     let result = head;
 
+    // It is possible slowNode is the same as deleteNode if they're both the first node
     if (slowNode === deleteNode) {
         result = deleteNode.next;
         deleteNode.next = null;
