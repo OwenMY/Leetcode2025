@@ -36,11 +36,6 @@
 
 function countNodes(root: TreeNode | null): number {
     if (!root) return 0;
-
-    let result = 1;
-
-    result+= countNodes(root.left);
-    result+= countNodes(root.right);
-
-    return result;
+    // We add 1 since the root node is defined
+    return 1 + countNodes(root.left) + countNodes(root.right);
 };
