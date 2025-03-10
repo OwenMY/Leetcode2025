@@ -12,28 +12,6 @@
  * }
  */
 
-
- /*
-    I - node
-    O - number of nodes
-    C - dfs or bfs
-    E - if no node, return 0
-
-
-    main(root)
-        if no node, return 0
-
-        create result at 1
-
-        result+= main(root.left);
-        result+= main(root.right);
-
-        return result
-
-
-
- */
-
 function countNodes(root: TreeNode | null): number {
     if (!root) return 0;
     // We add 1 since the root node is defined
