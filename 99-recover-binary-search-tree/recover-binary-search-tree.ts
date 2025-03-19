@@ -15,36 +15,28 @@
 /**
  Do not return anything, modify root in-place instead.
  */
-function recoverTree(root: TreeNode | null): void {
+function recoverTree(root: TreeNode | null, stack: TreeNode[] = []): void {
     if (!root) return;
+
+    recoverTree(root.left, stack);
 
     // Bst's if you traverse them inOrder should read each value in incrementing order
     // So we push nodes into this stack, check if the stacks in order swap accordingly
-    const nodes = []; 
+    stack.push(root);
 
-    const dfs = (node: TreeNode | null) => {
-        if (!node) return;
+    let currNodeIndex = stack.length - 1;
+    let prevNodeIndex = stack.length - 2;
 
-        dfs(node.left);
+    while (
+        prevNodeIndex >= 0 && 
+        currNodeIndex >= 0 && 
+        stack[currNodeIndex].val < stack[prevNodeIndex].val
+    ) {
+        [stack[currNodeIndex].val, stack[prevNodeIndex].val] = [stack[prevNodeIndex].val, stack[currNodeIndex].val];
+        // We swap + decrement since bst structure should always be in incrementing order from left to right
+        currNodeIndex--;
+        prevNodeIndex--;
+    }
 
-        nodes.push(node);
-
-        let currNodeIndex = nodes.length - 1;
-        let prevNodeIndex = nodes.length - 2;
-
-        while (
-            prevNodeIndex >= 0 && 
-            currNodeIndex >= 0 && 
-            nodes[currNodeIndex].val < nodes[prevNodeIndex].val
-        ) {
-            [nodes[currNodeIndex].val, nodes[prevNodeIndex].val] = [nodes[prevNodeIndex].val, nodes[currNodeIndex].val];
-            // We swap + decrement since bst structure should always be in incrementing order from left to right
-            currNodeIndex--;
-            prevNodeIndex--;
-        }
-
-        dfs(node.right);
-    };
-
-    dfs(root);
+    recoverTree(root.right, stack);
 };
