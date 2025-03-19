@@ -18,7 +18,9 @@
 function recoverTree(root: TreeNode | null): void {
     if (!root) return;
 
-    const nodes = [] // Nodes are placed based on inOrder traversal since tree is bst structure
+    // Bst's if you traverse them inOrder should read each value in incrementing order
+    // So we push nodes into this stack, check if the stacks in order swap accordingly
+    const nodes = []; 
 
     const dfs = (node: TreeNode | null) => {
         if (!node) return;
