@@ -13,10 +13,5 @@
  */
 
 function inorderTraversal(root: TreeNode | null): number[] {
-    if (!root) return [];
-
-    const leftResults = inorderTraversal(root.left);
-    const rightResults = inorderTraversal(root.right);
-
-    return [...leftResults, root.val, ...rightResults];
+    return root ? [...inorderTraversal(root.left), root.val, ...inorderTraversal(root.right)] : [];
 };
