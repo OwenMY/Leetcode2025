@@ -1,32 +1,3 @@
-/*
-
-visited Map memo
-
-if visited, we want to return the results of what the visited node can give us
-
-key: coords
-value: results yielded from those coords]
-
-
-dfs(): results
-
-    create results at 0
-
-    iterating
-        if memo already has coords,
-            get result of coords
-            increment path by result
-            return result
-
-        get result of dfs
-        increment result
-
-
-    add to memo
-
-    return result
-*/
-
 function uniquePaths(m: number, n: number): number {
     if (!m && !n) return 0;
 
