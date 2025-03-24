@@ -18,7 +18,6 @@ function restoreIpAddresses(s: string): string[] {
     }
 
     const dfs = (start = 0, path = "", section_no = 0, dot_count = 0): void => {
-        // console.log("path", path, "\nstart", start, "\nsection_no", section_no, "\n==========");
         if (isValidIpAddress(path)) {
             result.push(path.substring(0, path.length));
             return;
